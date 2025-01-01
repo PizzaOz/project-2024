@@ -12,23 +12,8 @@
   /* grid-gap: 10px; */
 }
 
-.header{
-  grid-area: h;
-  background-color: greenyellow;
-}
-.header img {
-  width: 100px;
-}
 
-.nav{
-  grid-area: n;
-  background-color: aquamarine;
-}
 
-.content{
-  grid-area: c;
-  background-color: yellow;
-}
-.content img {
-  width: 600px;
-}
+
+
+

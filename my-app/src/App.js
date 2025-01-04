@@ -19,7 +19,7 @@ const App = () => {
       <div className='app-wrapper-content'>
       <Routes>
         <Route path='/profile' element={<Profile/>}/>
-        <Route path='/dialog' element={<Dialog/>}/>
+        <Route path='/dialog/*' element={<Dialog/>}/>
         <Route path='/news' element={<News/>}/>
         <Route path='/music' element={<Music/>}/>
         <Route path='/setings' element={<Setings/>}/>

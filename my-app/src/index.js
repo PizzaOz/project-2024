@@ -20,10 +20,17 @@ const messageData = [
   { id: '5', message: 'Privet' },
 ]
 
+const messageDataPost = [
+  {id: 1, message: 'hi ssss', likeCount: 12},
+  {id: 2, message: 'hi You', likeCount: 14},
+  {id: 3, message: 'hi eee', likeCount: 17},
+  {id: 4, message: 'his eee', likeCount: 3},
+]
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App dialogData={dialogData} messageData={messageData}/>
+    <App dialogData={dialogData} messageData={messageData} messageDataPost={messageDataPost} />
   </React.StrictMode>
 );
 

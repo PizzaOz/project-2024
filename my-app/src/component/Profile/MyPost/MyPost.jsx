@@ -4,7 +4,7 @@ import Post from "./Post/Post.jsx";
 
 const MyPost = (props) => {
 
-  const postitem = props.messageDataPost.map(m => <Post message={m.message} like={m.likeCount} />)
+  const postItem = props.state.post.map(m => <Post message={m.message} like={m.likeCount} />)
   return (
     <div className={s.postsBlock}>
       <h3>My posts</h3>
@@ -17,7 +17,7 @@ const MyPost = (props) => {
         </div>
       </div>
       <div className={s.posts}>
-        {postitem}
+        {postItem}
       </div>
     </div>
   )

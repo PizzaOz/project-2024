@@ -1,0 +1,13 @@
+.content img {
+    width: 40px;
+    display: inline-block;
+    border-radius: 50%;
+    
+  }
+.item {
+    text-align: center;
+    font-size: 10px;
+    
+}
+  
+

@@ -17,19 +17,30 @@ const state = {
     },
     profilePage: {
         post: [
-            {id: 1, message: 'hi ssss', likeCount: 12},
-            {id: 2, message: 'hi You', likeCount: 14},
-            {id: 3, message: 'hi eee', likeCount: 17},
-            {id: 4, message: 'his eee', likeCount: 3},
+            { id: 1, message: 'hi ssss', likeCount: 12 },
+            { id: 2, message: 'hi You', likeCount: 14 },
+            { id: 3, message: 'hi eee', likeCount: 17 },
+            { id: 4, message: 'his eee', likeCount: 3 },
         ],
     },
     friendsPage: {
         friends: [
-            {friend: 'Sergey', img: "https://static.insales-cdn.com/images/products/1/1979/515671995/large_kotiki_kolpaki_kotiki_fotografichnye_6_shtuk_1501_4985.jpg"},
-            {friend: 'Anton', img: "https://711515.selcdn.ru/recycleCDN/main/9/9ead29f7ebb448d64cd47e567738b77a_thumbnail.jpg"},
-            {friend: 'Dima', img: "https://ybis.ru/wp-content/uploads/2023/09/kotiki-s-serdechkami-12.webp"},
+            { friend: 'Sergey', img: "https://static.insales-cdn.com/images/products/1/1979/515671995/large_kotiki_kolpaki_kotiki_fotografichnye_6_shtuk_1501_4985.jpg" },
+            { friend: 'Anton', img: "https://711515.selcdn.ru/recycleCDN/main/9/9ead29f7ebb448d64cd47e567738b77a_thumbnail.jpg" },
+            { friend: 'Dima', img: "https://ybis.ru/wp-content/uploads/2023/09/kotiki-s-serdechkami-12.webp" },
         ]
     }
+}
+
+
+
+export const addPost = (userText) => {
+    const newPost = {
+        id: 5,
+        message: userText,
+        likeCount: 0,
+    };
+    state.profilePage.post.push(newPost)
 }
 
 export default state

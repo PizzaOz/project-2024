@@ -1,3 +1,5 @@
+import { rerenderEntireTree } from "../render";
+
 const state = {
     dialogPage: {
         dialog: [
@@ -41,6 +43,7 @@ export const addPost = (userText) => {
         likeCount: 0,
     };
     state.profilePage.post.push(newPost)
+    rerenderEntireTree(state)
 }
 
 export default state

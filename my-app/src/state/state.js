@@ -24,6 +24,7 @@ const state = {
             { id: 3, message: 'hi eee', likeCount: 17 },
             { id: 4, message: 'his eee', likeCount: 3 },
         ],
+        newPostText: 'hellou text'
     },
     friendsPage: {
         friends: [
@@ -35,15 +36,20 @@ const state = {
 }
 
 
-
-export const addPost = (userText) => {
+export const addPost = () => {
     const newPost = {
         id: 5,
-        message: userText,
+        message: state.profilePage.newPostText,
         likeCount: 0,
     };
     state.profilePage.post.push(newPost)
+    state.profilePage.newPostText = ''
     rerenderEntireTree(state)
 }
 
+export const updateNewPostText = (newText) => {
+
+    state.profilePage.newPostText = newText;
+    rerenderEntireTree(state);
+}
 export default state

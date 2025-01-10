@@ -1,18 +1,19 @@
 import React from "react";
 import s from './MyPost.module.css'
 import Post from "./Post/Post.jsx";
+import { addPostActionCreator, updateNewPostTextActionCreator } from "../../../state/state.js";
 
 const MyPost = (props) => {
 
   const newPostElement = React.createRef()
 
-  const textArea = () => {
-    props.dispatch({type: 'ADD-POST'})
+  const addPost = () => {
+    props.dispatch(addPostActionCreator())
   }
 
   const onPostChange = () => {
     const text = newPostElement.current.value 
-    props.dispatch({type: 'UPDATE-NEW-POST-TEXT', newText: text})
+    props.dispatch(updateNewPostTextActionCreator(text))
   }
 
   const postItem = props.state.post.map(m => <Post message={m.message} like={m.likeCount} />)
@@ -25,7 +26,7 @@ const MyPost = (props) => {
           <textarea onChange={onPostChange} ref={newPostElement} value={props.state.newPostText} />
         </div>
         <div>
-          <button onClick={textArea}>Add post</button>
+          <button onClick={addPost}>Add post</button>
         </div>
       </div>
       <div className={s.posts}>

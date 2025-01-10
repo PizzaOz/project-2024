@@ -1,15 +1,14 @@
 import React from "react";
-import s from './Profile.module.css'
 import MyPost from "./MyPost/MyPost.jsx";
 import ProfileInfo from "./ProfileInfo/ProfileInfo.jsx";
 
 const Profile = (props) => {
-    return(
+  return (
     <div>
-      <ProfileInfo/>
-      < MyPost state={props.state} addPost={props.addPost} updateNewPostText={props.updateNewPostText}/>
+      <ProfileInfo />
+      < MyPost state={props.state} dispatch={props.dispatch} />
     </div>
-    )
+  )
 }
 
-export default Profile
+export default Profile;

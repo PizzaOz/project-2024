@@ -2,7 +2,8 @@ import React from "react";
 import s from './Dialog.module.css'
 import DialogItems from "./DialogItems/DialogItems";
 import MessageItems from "./MessageItems/MessageItems";
-import { sendNewMessageBodyActionCreator, updateNewMessageBodyActionCreator } from "../../state/state";
+import { sendNewMessageBodyActionCreator, updateNewMessageBodyActionCreator } from "../../state/dialogs-reducer";
+
 
 
 const Dialog = (props) => {

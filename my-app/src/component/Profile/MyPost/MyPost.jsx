@@ -1,7 +1,8 @@
 import React from "react";
 import s from './MyPost.module.css'
 import Post from "./Post/Post.jsx";
-import { addPostActionCreator, updateNewPostTextActionCreator } from "../../../state/state.js";
+import { addPostActionCreator, updateNewPostTextActionCreator } from "../../../state/profile-reducer.js";
+
 
 const MyPost = (props) => {
 

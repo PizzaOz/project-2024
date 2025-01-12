@@ -1,6 +1,6 @@
-import dialogReducer, { sendNewMessageBodyActionCreator, updateNewMessageBodyActionCreator } from "./dialogs-reducer";
+import dialogReducer from "./dialogs-reducer";
 import friendsReducer from "./friends-reducer";
-import profileReducer, { addPostActionCreator, updateNewPostTextActionCreator } from "./profile-reducer";
+import profileReducer from "./profile-reducer";
 
 
 const store = {
@@ -39,20 +39,20 @@ const store = {
             ]
         }
     },
-    _rerenderEntireTree() {
+    _callSubscriber() {
         console.log('hi')
     },
     getState() {
         return this._state;
     },
     subscribe(observer) {
-        this._rerenderEntireTree = observer
+        this._callSubscriber = observer
     },
     dispatch(action) {
         this._state.dialogPage = dialogReducer(this._state.dialogPage, action)
         this._state.profilePage = profileReducer(this._state.profilePage, action)
         this._state.friendsPage = friendsReducer(this._state.friendsPage, action)
-        this._rerenderEntireTree(this._state);
+        this._callSubscriber(this._state);
 
     },
 };

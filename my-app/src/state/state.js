@@ -1,6 +1,6 @@
-import dialogReducer from "./dialogs-reducer";
-import friendsReducer from "./friends-reducer";
-import profileReducer from "./profile-reducer";
+// import dialogReducer from "./dialogs-reducer";
+// import friendsReducer from "./friends-reducer";
+// import profileReducer from "./profile-reducer";
 
 
 const store = {
@@ -58,4 +58,4 @@ const store = {
 };
 
 
-export default store;
+

@@ -2,11 +2,11 @@ import './App.css';
 import Header from './component/Header/Header';
 import Nav from './component/Nav/Nav';
 import Profile from './component/Profile/Profile';
-import Dialog from './component/Dialog/Dialog';
 import Music from './component/Music/Music';
 import News from './component/News/News';
 import Setings from './component/Setings/Setings';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import DialogContainer from './component/Dialog/DialogContainer';
 
 const App = (props) => {
 
@@ -17,11 +17,8 @@ const App = (props) => {
         <Nav state={props.state.friendsPage}/>
         <div className='app-wrapper-content'>
           <Routes>
-            <Route path='/profile' element={<Profile 
-            state={props.state.profilePage} 
-            dispatch={props.dispatch} 
-            />} />
-            <Route path='/dialog/*' element={<Dialog store={props.store}/>} />
+            <Route path='/profile' element={<Profile store={props.store}/>} />
+            <Route path='/dialog/*' element={<DialogContainer store={props.store}/>} />
             <Route path='/news' element={<News />} />
             <Route path='/music' element={<Music />} />
             <Route path='/setings' element={<Setings />} />

@@ -1,23 +1,24 @@
 import React from "react";
 import s from './MyPost.module.css'
 import Post from "./Post/Post.jsx";
-import { addPostActionCreator, updateNewPostTextActionCreator } from "../../../state/profile-reducer.js";
+
 
 
 const MyPost = (props) => {
 
   const newPostElement = React.createRef()
 
-  const addPost = () => {
-    props.dispatch(addPostActionCreator())
+  const postItem = props.state.post.map(m => <Post message={m.message} like={m.likeCount} />)
+
+  const onAddPost = () => {
+    props.addPost()
   }
 
   const onPostChange = () => {
     const text = newPostElement.current.value 
-    props.dispatch(updateNewPostTextActionCreator(text))
+    props.updateNewPostText(text)
   }
 
-  const postItem = props.state.post.map(m => <Post message={m.message} like={m.likeCount} />)
 
   return (
     <div className={s.postsBlock}>
@@ -27,7 +28,7 @@ const MyPost = (props) => {
           <textarea onChange={onPostChange} ref={newPostElement} value={props.state.newPostText} />
         </div>
         <div>
-          <button onClick={addPost}>Add post</button>
+          <button onClick={onAddPost}>Add post</button>
         </div>
       </div>
       <div className={s.posts}>

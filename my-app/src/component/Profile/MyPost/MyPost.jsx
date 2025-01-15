@@ -5,17 +5,17 @@ import Post from "./Post/Post.jsx";
 
 
 const MyPost = (props) => {
-
+  
   const newPostElement = React.createRef()
 
-  const postItem = props.state.post.map(m => <Post message={m.message} like={m.likeCount} />)
+  const postItem = props.state.post.map(m => <Post key={m.id} message={m.message} like={m.likeCount} />)
 
   const onAddPost = () => {
     props.addPost()
   }
 
   const onPostChange = () => {
-    const text = newPostElement.current.value 
+    const text = newPostElement.current.value
     props.updateNewPostText(text)
   }
 

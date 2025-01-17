@@ -1,9 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
-import { followAC, setCurrentPageAC, setUserAC, setUsersTotalCountAC, toggleIsFetchingAC, unfollowAC, } from "../../state/users-reducer";
+import { follow, setCurrentPage, setUsers, setUsersTotalCount, toggleIsFetching, unfollow, } from "../../state/users-reducer";
 import Users from "./User";
 import axios from 'axios'
-import KotLoding from '../../assete/img/KotLoding.gif'
 import Preloader from "../common/Preloader/Preloader";
 
 
@@ -26,7 +25,6 @@ class UsersContainer extends React.Component {
             this.props.setUsers(response.data.items);
             this.props.toggleIsFetching(false)
         });
-
     }
 
     render() {
@@ -43,7 +41,6 @@ class UsersContainer extends React.Component {
             follow={this.props.follow}  />
              </>
             )
-           
     }
 }
 
@@ -57,29 +54,38 @@ let mapStateToProps = (state) => {
     }
 }
 
-let mapDispatchToProps = (dispatch) => {
-    return {
-        follow: (userId) => {
-            dispatch(followAC(userId))
-        },
-        unfollow: (userId) => {
-            dispatch(unfollowAC(userId))
-        },
-        setUsers: (users) => {
-            dispatch(setUserAC(users))
-        },
-        setCurrentPage: (pageNumber) => {
-            dispatch(setCurrentPageAC(pageNumber))
-        },
-        setUsersTotalCount: (totalCount) => {
-            dispatch(setUsersTotalCountAC(totalCount))
-        },
-        toggleIsFetching: (isFetching) => {
-            dispatch(toggleIsFetchingAC(isFetching))
-        },
-    }
-}
 
-const UserContainer = connect(mapStateToProps, mapDispatchToProps)(UsersContainer);
+
+const UserContainer = connect(mapStateToProps, {
+    follow,
+    unfollow,
+    setUsers,
+    setCurrentPage,
+    setUsersTotalCount,
+    toggleIsFetching,
+})(UsersContainer);
 
 export default UserContainer
+
+// let mapDispatchToProps = (dispatch) => {
+//     return {
+//         follow: (userId) => {
+//             dispatch(followAC(userId))
+//         },
+//         unfollow: (userId) => {
+//             dispatch(unfollowAC(userId))
+//         },
+//         setUsers: (users) => {
+//             dispatch(setUserAC(users))
+//         },
+//         setCurrentPage: (pageNumber) => {
+//             dispatch(setCurrentPageAC(pageNumber))
+//         },
+//         setUsersTotalCount: (totalCount) => {
+//             dispatch(setUsersTotalCountAC(totalCount))
+//         },
+//         toggleIsFetching: (isFetching) => {
+//             dispatch(toggleIsFetchingAC(isFetching))
+//         },
+//     }
+// }

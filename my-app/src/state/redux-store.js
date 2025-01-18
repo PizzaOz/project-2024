@@ -3,6 +3,7 @@ import dialogReducer from './dialogs-reducer'
 import friendsReducer from './friends-reducer'
 import profileReducer from './profile-reducer'
 import usersReducer from './users-reducer'
+import authReducer from './auth-reducer'
 
 
 
@@ -11,6 +12,7 @@ let reducers = combineReducers({
     friendsPage: friendsReducer,
     profilePage: profileReducer,
     usersPage: usersReducer,
+    auth: authReducer,
 })
 
 const store = createStore(reducers)

@@ -1,7 +1,7 @@
 import React from "react";
 import s from './User.module.css'
 import { NavLink } from "react-router-dom";
-import { deleteUsers, postUsers } from "../../api/api";
+import { userAPI } from "../../api/api";
 
 
 let Users = (props) => {
@@ -29,7 +29,7 @@ let Users = (props) => {
                         {u.followed
                             ?
                             <button onClick={() => {
-                                deleteUsers(u.id)
+                                userAPI.deleteUsers(u.id)
                                     .then(data => {
                                         if (data.resultCode === 0) {
                                             props.unfollow(u.id);
@@ -38,7 +38,7 @@ let Users = (props) => {
                             }}>Unfollow</button>
                             :
                             <button onClick={() => {
-                                postUsers(u.id)
+                                userAPI.postUsers(u.id)
                                     .then(data => {
                                         if (data.resultCode === 0) {
                                             props.follow(u.id);

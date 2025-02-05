@@ -8,9 +8,21 @@ import UserContainer from './component/User/UserContainer';
 import ProfileContainer from './component/Profile/ProfileContainer';
 import HeaderContainer from './component/Header/HeaderContainer';
 import Login from './component/Login/Login';
+import { Component } from 'react';
+import { connect } from 'react-redux';
+import { initializeApp } from './state/app-reducer';
+import Preloader from './component/common/Preloader/Preloader';
 
 
-const App = (props) => {
+class App extends Component {
+  componentDidMount() {
+    this.props.initializeApp()
+  }
+
+  render() {
+    if (!this.props.initialized) {
+      return <Preloader/>
+    }
 
   return (
     <Router>
@@ -31,5 +43,10 @@ const App = (props) => {
     </Router>
   );
 }
+}
 
-export default App;
+const mapStateToProps = (state) => ({
+  initialized: state.app.initialized
+})
+
+export default connect(mapStateToProps,{initializeApp})(App)

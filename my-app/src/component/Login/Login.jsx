@@ -8,9 +8,9 @@ import { Navigate } from "react-router-dom";
 import style from "./../common/FormsControls/FormsControls.module.css";
 
 
-const LoginForm = (props) => {
+const LoginForm = ({handleSubmit, error}) => {
     return (
-        <form onSubmit={props.handleSubmit}>
+        <form onSubmit={handleSubmit}>
             <div>
                 <Field component={Input}  validate={[required]} name={"email"} placeholder={"Email"} />
             </div>
@@ -20,8 +20,8 @@ const LoginForm = (props) => {
             <div>
                 <Field component={Input} name={"rememberMy"} type={"checkbox"} /> Remember my
             </div>
-            {props.error && <div className={style.formSummaryError}>
-            {props.error}
+            {error && <div className={style.formSummaryError}>
+            {error}
             </div>}
             <div>
                 <button>Login</button>
@@ -32,11 +32,11 @@ const LoginForm = (props) => {
 
 const LoginReduxForm = reduxForm({form: 'login'})(LoginForm)
 
-const Login = (props) => {
+const Login = ({login, isAuth}) => {
   const onSubmit = (formData) => {
-    props.login(formData.email, formData.password, formData.rememberMy)
+    login(formData.email, formData.password, formData.rememberMy)
   }
-  if (props.isAuth) {
+  if (isAuth) {
     return <Navigate replace to="/profile"/>
   }
     return (
